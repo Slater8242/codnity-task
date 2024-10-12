@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Box, Typography,  Card, CardMedia, CardContent, CardActions, Button, Rating, CircularProgress } from '@mui/material';
+import { Box, Typography,  Card, CardMedia, CardContent, CardActions, Button, Rating, CircularProgress, Tooltip } from '@mui/material';
 import Grid from "@mui/material/Grid2"
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -49,12 +50,16 @@ const Products = () => {
                 sx={{ objectFit: 'contain'}}
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h6" sx={{ minHeight: 60 }}>
-                  {product.title.length > 50 ? `${product.title.substring(0, 47)}...` : product.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ minHeight: 80 }}>
-                  {product.description.length > 100 ? `${product.description.substring(0, 97)}...` : product.description}
-                </Typography>
+                <Tooltip title={product.title.length > 47 ? product.title : null}>
+                  <Typography gutterBottom variant="h6" sx={{ minHeight: 60 }}>
+                    {product.title.length > 50 ? `${product.title.substring(0, 47)}...` : product.title}
+                  </Typography>
+                </Tooltip>
+                <Tooltip title={product.description.length > 97 ? product.description : null}>
+                  <Typography variant="body2" color="text.secondary" sx={{ minHeight: 80 }}>
+                    {product.description.length > 100 ? `${product.description.substring(0, 97)}...` : product.description}
+                  </Typography>
+                </Tooltip>
                 <Typography variant="h6" color="primary">
                   ${product.price}
                 </Typography>
@@ -65,13 +70,19 @@ const Products = () => {
                     Category: {product.category}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Rating value={product.rating.rate} readOnly precision={0.1} />
+                    <Rating value={product.rating.rate} readOnly precision={0.1} size="small"/>
                     <Typography variant="body2" sx={{ ml: 1 }}>
                       ({product.rating.count} reviews)
                     </Typography>
                   </Box>
                 </Box>
-                <Button size="small" color="primary">
+                <Button
+                  size="small"
+                  component={Link}
+                  to={`/products/${product.id}`}
+                  variant="contained"
+                  color="primary"
+                >
                   View Details
                 </Button>
               </CardActions>

@@ -12,7 +12,7 @@ const Contact = () => {
       </Typography>
 
       <Grid container spacing={4} sx={{ mt: 4 }}>
-        <Grid item xs={12} md={6}>
+        <Grid item size={{xs:12, md:6}}>
           <Paper elevation={4} sx={{ p: 3}}>
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
               Our Contact Information
@@ -32,7 +32,7 @@ const Contact = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid item size={{xs:12, md:6}}>
           <Paper elevation={4} sx={{ p: 3 }}>
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
               Send Us a Message

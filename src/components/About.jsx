@@ -67,27 +67,26 @@ const About = () => {
   );
 };
 
-// Sample data for the team members
 const teamMembers = [
   {
     id: 1,
     name: 'John Doe',
     role: 'Founder & CEO',
-    image: 'https://picsum.photos/300',
+    image: 'https://picsum.photos/300/200',
     description: 'John is the visionary behind our brand, with over 10 years of experience in the industry.',
   },
   {
     id: 2,
     name: 'Jane Smith',
     role: 'Chief Marketing Officer',
-    image: 'https://picsum.photos/300',
+    image: 'https://picsum.photos/300/300',
     description: 'Jane brings her creativity and marketing expertise to make sure our brand reaches everyone.',
   },
   {
     id: 3,
     name: 'Emily Johnson',
     role: 'Product Manager',
-    image: 'https://picsum.photos/300',
+    image: 'https://picsum.photos/300/150',
     description: 'Emily ensures all of our products meet the highest standards before reaching our customers.',
   },
 ];
